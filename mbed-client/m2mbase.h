@@ -139,7 +139,7 @@ public:
             char*               name; //for backwards compatibility
             uint16_t            instance_id; // XXX: this is not properly aligned now, need to reorder these after the elimination is done
         } identifier;
-        sn_nsdl_dynamic_resource_parameters_s *dynamic_resource_params;
+        sn_nsdl_dynamic_resource_parameters_s dynamic_resource_params;
         BaseType            base_type : 2;
         M2MBase::DataType   data_type : 3;
         bool                multiple_instance;

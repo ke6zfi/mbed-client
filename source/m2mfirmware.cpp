@@ -151,80 +151,22 @@ static sn_nsdl_static_resource_parameters_s firmware_update_result_params_static
     false                   // free_on_delete
 };
 
-static sn_nsdl_dynamic_resource_parameters_s firmware_package_params_dynamic = {
-    __nsdl_c_callback,
-    &firmware_package_params_static,
-    NULL,
-    {NULL, NULL},                     // link
-    0,
-    COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
-    M2MBase::PUT_ALLOWED,   // access
-    0,                      // registered
-    false,                  // publish_uri
-    false,                  // free_on_delete
-    true                    // observable
-};
-
-static sn_nsdl_dynamic_resource_parameters_s firmware_package_uri_params_dynamic = {
-    __nsdl_c_callback,
-    &firmware_package_uri_params_static,
-    NULL,
-    {NULL, NULL},                     // link
-    0,
-    COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
-    M2MBase::PUT_ALLOWED,   // access
-    0,                      // registered
-    false,                  // publish_uri
-    false,                  // free_on_delete
-    true                    // observable
-};
-
-static sn_nsdl_dynamic_resource_parameters_s firmware_update_params_dynamic = {
-    __nsdl_c_callback,
-    &firmware_update_params_static,
-    NULL,
-    {NULL, NULL},                     // link
-    0,
-    COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
-    M2MBase::NOT_ALLOWED,   // access
-    0,                      // registered
-    false,                  // publish_uri
-    false,                  // free_on_delete
-    true                    // observable
-};
-
-static sn_nsdl_dynamic_resource_parameters_s firmware_state_params_dynamic = {
-    __nsdl_c_callback,
-    &firmware_state_params_static,
-    NULL,                   // resource
-    {NULL, NULL},           // link
-    0,                      // resourcelen
-    COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
-    M2MBase::GET_ALLOWED,   // access
-    0,                      // registered
-    false,                  // publish_uri
-    false,                  // free_on_delete
-    true                    // observable
-};
-
-static sn_nsdl_dynamic_resource_parameters_s firmware_update_result_params_dynamic = {
-    __nsdl_c_callback,
-    &firmware_update_result_params_static,
-    NULL,                   // resource
-    {NULL, NULL},           // link
-    0,                      // resourcelen
-    COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
-    M2MBase::GET_ALLOWED,   // access
-    0,                      // registered
-    false,                  // publish_uri
-    false,                  // free_on_delete
-    true                    // observable
-};
-
-const static M2MBase::lwm2m_parameters firmware_package_params = {
+static M2MBase::lwm2m_parameters firmware_package_params = {
     0, // max_age
     (char*)FIRMWARE_PACKAGE,
-    &firmware_package_params_dynamic,
+    {
+        __nsdl_c_callback,
+        &firmware_package_params_static,
+        NULL,
+        {NULL, NULL},                     // link
+        0,
+        COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
+        M2MBase::PUT_ALLOWED,   // access
+        0,                      // registered
+        false,                  // publish_uri
+        false,                  // free_on_delete
+        true                    // observable
+    },
     M2MBase::Resource, // base_type
     M2MBase::OPAQUE,
     false,
@@ -232,10 +174,22 @@ const static M2MBase::lwm2m_parameters firmware_package_params = {
     false  // identifier_int_type
 };
 
-const static M2MBase::lwm2m_parameters firmware_package_uri_params = {
+static M2MBase::lwm2m_parameters firmware_package_uri_params = {
     0, // max_age
     (char*)FIRMWARE_PACKAGE_URI,
-    &firmware_package_uri_params_dynamic,
+    {
+        __nsdl_c_callback,
+        &firmware_package_uri_params_static,
+        NULL,
+        {NULL, NULL},                     // link
+        0,
+        COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
+        M2MBase::PUT_ALLOWED,   // access
+        0,                      // registered
+        false,                  // publish_uri
+        false,                  // free_on_delete
+        true                    // observable
+    },
     M2MBase::Resource, // base_type
     M2MBase::STRING,
     false,
@@ -243,10 +197,22 @@ const static M2MBase::lwm2m_parameters firmware_package_uri_params = {
     false  // identifier_int_type
 };
 
-const static M2MBase::lwm2m_parameters firmware_update_params = {
+static M2MBase::lwm2m_parameters firmware_update_params = {
     0, // max_age
     (char*)FIRMWARE_UPDATE,
-    &firmware_update_params_dynamic,
+    {
+        __nsdl_c_callback,
+        &firmware_update_params_static,
+        NULL,
+        {NULL, NULL},                     // link
+        0,
+        COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
+        M2MBase::NOT_ALLOWED,   // access
+        0,                      // registered
+        false,                  // publish_uri
+        false,                  // free_on_delete
+        true                    // observable
+    },
     M2MBase::Resource, // base_type
     M2MBase::OPAQUE,
     false,
@@ -254,10 +220,22 @@ const static M2MBase::lwm2m_parameters firmware_update_params = {
     false  // identifier_int_type
 };
 
-const static M2MBase::lwm2m_parameters firmware_state_params = {
+static M2MBase::lwm2m_parameters firmware_state_params = {
     0, // max_age
     (char*)FIRMWARE_STATE,
-    &firmware_state_params_dynamic,
+    {
+        __nsdl_c_callback,
+        &firmware_state_params_static,
+        NULL,                   // resource
+        {NULL, NULL},           // link
+        0,                      // resourcelen
+        COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
+        M2MBase::GET_ALLOWED,   // access
+        0,                      // registered
+        false,                  // publish_uri
+        false,                  // free_on_delete
+        true                    // observable
+    },
     M2MBase::Resource, // base_type
     M2MBase::INTEGER,
     false,
@@ -265,10 +243,22 @@ const static M2MBase::lwm2m_parameters firmware_state_params = {
     false  // identifier_int_type
 };
 
-const static M2MBase::lwm2m_parameters firmware_update_result_params = {
+static M2MBase::lwm2m_parameters firmware_update_result_params = {
     0, // max_age
     (char*)FIRMWARE_UPDATE_RESULT,
-    &firmware_update_result_params_dynamic,
+    {
+        __nsdl_c_callback,
+        &firmware_update_result_params_static,
+        NULL,                   // resource
+        {NULL, NULL},           // link
+        0,                      // resourcelen
+        COAP_CONTENT_OMA_PLAIN_TEXT_TYPE, // coap_content_type
+        M2MBase::GET_ALLOWED,   // access
+        0,                      // registered
+        false,                  // publish_uri
+        false,                  // free_on_delete
+        true                    // observable
+    },
     M2MBase::Resource, // base_type
     M2MBase::INTEGER,
     false,
