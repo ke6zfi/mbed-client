@@ -1266,7 +1266,7 @@ void M2MNsdlInterface::send_resource_observation(M2MResource *resource,
         uint32_t token_length = 0;
 
         resource->get_observation_token(token,token_length);
-        uint8_t content_type = 0;
+        uint16_t content_type = 0;
         if(M2MResourceInstance::OPAQUE == resource->resource_instance_type()) {
             content_type = COAP_CONTENT_OMA_OPAQUE_TYPE;
         }
@@ -1295,7 +1295,7 @@ void M2MNsdlInterface::send_notification(uint8_t *token,
                                          uint32_t value_length,
                                          uint16_t observation,
                                          uint32_t max_age,
-                                         uint8_t  coap_content_type)
+                                         uint16_t  coap_content_type)
 
 {
     tr_debug("M2MNsdlInterface::send_notification");
