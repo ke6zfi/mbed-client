@@ -230,7 +230,7 @@ public:
      * \param content_type The content type to be set based on
      * CoAP specifications.
      */
-    void set_coap_content_type(const uint8_t content_type);
+    void set_coap_content_type(const uint16_t content_type);
 
     /**
      * \brief Sets the observable mode for the object.
@@ -343,7 +343,7 @@ public:
      * \brief Returns the CoAP content type of the object.
      * \return The CoAP content type of the object.
      */
-    uint8_t coap_content_type() const;
+    uint16_t coap_content_type() const;
 
     /**
      * \brief Returns the observation status of the object.

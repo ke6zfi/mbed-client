@@ -256,7 +256,7 @@ void M2MBase::set_resource_type(const char *res_type)
 #endif
 #endif
 
-void M2MBase::set_coap_content_type(const uint8_t con_type)
+void M2MBase::set_coap_content_type(const uint16_t con_type)
 {
     _sn_resource->dynamic_resource_params->coap_content_type = con_type;
 }
@@ -387,7 +387,7 @@ const char* M2MBase::uri_path() const
         _sn_resource->dynamic_resource_params->static_resource_parameters->path));
 }
 
-uint8_t M2MBase::coap_content_type() const
+uint16_t M2MBase::coap_content_type() const
 {
     return _sn_resource->dynamic_resource_params->coap_content_type;
 }
